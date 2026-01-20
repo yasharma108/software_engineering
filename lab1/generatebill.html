@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Generate Bill | Electricity Bill Generator</title>
+        <link rel="stylesheet" href="style.css">
+        <h1>Generate Bill</h1>
+        <p>
+    </head>
+    <body>
+        <form action="bill.php" method="POST">
+            <fieldset><legend>Kindly enter your details:</legend>
+                <label>Enter MeterID: </label>
+                <input type="text" name="meter_id" required><br><br>
+                <label>Enter the number of units used: </label>
+                <input type="number" name="units" required><br><br>
+                <input type="submit" value="Generate Bill">
+            </fieldset>
+            
+        </form>
+    </body>
+</html>
