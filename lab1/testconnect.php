@@ -1,12 +1,12 @@
 <?php
-$conn=new mysqli("localhost", "root", "", "electricity");
+    $conn=new mysqli("localhost", "root", "", "electricity");
 
-if($conn)
+    if($conn)
     {
         echo"Successfully connected to db";
     }
     else
-        {
-            echo "Error in connecting to db";
-        }
+    {
+        echo "Error in connecting to db";
+    }
 ?>
