@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumer Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Consumer Registration</h2>
+
+<?php if(isset($message)) echo "<p style='text-align:center; color:green;'>$message</p>"; ?>
+
+<form action="consumer_register.php" method="post">
+    <fieldset>
+        <legend>Fill Your Details</legend>
+
+        <label>Name:</label>
+        <input type="text" name="name" required
+               pattern="[A-Za-z ]{3,32}" title="3 to 32 letters and spaces only">
+
+        <label>Mobile:</label>
+        <input type="text" name="mobile" required
+               pattern="\d{10}" title="Exactly 10 digits">
+
+        <label>Address:</label>
+        <textarea name="address" required></textarea>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <label>Category:</label>
+        <select name="category" required>
+            <option value="">Select</option>
+            <option value="Domestic">Domestic</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Commercial">Commercial</option>
+        </select>
+
+        <input type="submit" name="register" value="Submit">
+    </fieldset>
+</form>
+</body>
+</html>
