@@ -1,12 +1,13 @@
 <?php
-    $conn=new mysqli("localhost", "root", "", "electricity");
-
-    if($conn)
-    {
-        echo"Successfully connected to db";
+    $servername="localhost";
+    $username="yash";
+    $password="yash1204";
+    $dbname="electricity";
+    $conn=new mysqli($servername, $username, $password, $dbname);
+    if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error);
     }
-    else
-    {
-        echo "Error in connecting to db";
+    else{
+        echo "Connected successfully";
     }
 ?>

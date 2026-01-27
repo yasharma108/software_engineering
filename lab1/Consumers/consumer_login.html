@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumer Login</title>
+    <link rel="stylesheet" href="consumer.css">
+</head>
+<body>
+
+<form action="consumer_login.php" method="post">
+    <h2>Consumer Login</h2>
+
+    <!-- Display messages if redirected with ?message= -->
+    <?php if(isset($_GET['message'])): ?>
+        <p class="message"><?= htmlspecialchars($_GET['message']) ?></p>
+    <?php endif; ?>
+
+    <fieldset>
+        <legend>Login</legend>
+
+        <label>Consumer Number or Meter ID:</label>
+        <input type="text" name="user_id" required placeholder="Consumer No or Meter ID">
+
+        <label>Password:</label>
+        <input type="password" name="password" required placeholder="Enter your password">
+
+        <input type="submit" name="login" value="Login">
+    </fieldset>
+
+    <div class="back-link">
+        <a href="../login.html">← Back to Role Selection</a>
+    </div>
+</form>
+
+</body>
+</html>

@@ -2,15 +2,15 @@
 <html>
     <head>
         <title>Admin Login</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="admin.css">
     </head>
     <body>
         <h2>Admin Login</h2>
         <form action="admin_login.php" method="post">
             <label>Admin ID: </label>
-            <input type="text" name="admin_id"><br><br>
+            <input type="text" name="admin_id" required>
             <label>Password: </label>
-            <input type="password" name="password"><br><br>
+            <input type="password" name="password" required>
             <input type="submit" value="Login">
         </form>
     </body>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            background-color: #1e3a8a;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<form id="roleLoginForm">
+    <h2>Select Role to Login</h2>
+
+    <label>Role:</label>
+    <select id="roleSelect" required>
+        <option value="">--Select Role--</option>
+        <option value="admin">Admin</option>
+        <option value="employee">Employee</option>
+        <option value="consumer">Consumer</option>
+    </select>
+
+    <input type="submit" value="Login">
+</form>
+
+<script>
+    const form = document.getElementById('roleLoginForm');
+    form.addEventListener('submit', function(e){
+        e.preventDefault(); 
+        const role = document.getElementById('roleSelect').value;
+
+        if(role === "admin") {
+            window.location.href = "Admin/admin_login.html";
+        } else if(role === "employee") {
+            window.location.href = "Employee/employee_login.html";
+        } else if(role === "consumer") {
+            window.location.href = "Consumers/consumer_login.html";
+        } else {
+            alert("Please select a role");
+        }
+    });
+</script>
+
+</body>
+</html>
