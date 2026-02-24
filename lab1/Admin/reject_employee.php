@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost","root","yash1204","electricity");
+$conn = new mysqli("localhost","yash","yash1204","electricity");
 
 $id = $_POST['id'];
 

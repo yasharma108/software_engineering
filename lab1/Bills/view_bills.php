@@ -1,45 +1,62 @@
 <?php
 session_start();
-if ($_SESSION['role'] != 'admin') {
-    die("Access denied");
+$conn = new mysqli("localhost","yash","yash1204","electricity");
+
+if(!isset($_SESSION['emp_id'])) {
+    header("Location: employeelogin.html");
+    exit();
 }
 
-$conn = new mysqli("localhost", "root", "", "electricity");
+// Fetch all bills
+$bills_result = $conn->query("SELECT * FROM bills ORDER BY due_date ASC");
+$billsCount = $bills_result->num_rows;
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>All Bills</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+<head>
+    <title>All Bills</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
 
-    <h2>All Generated Bills</h2>
+<h2>All Generated Bills</h2>
 
-    <table border="1" cellpadding="10" align="center">
+<?php if($billsCount > 0) { ?>
+<table>
     <tr>
-        <th>Bill ID</th>
+        <th>Consumer Name</th>
+        <th>Consumer No.</th>
         <th>Meter ID</th>
         <th>Units</th>
-        <th>Amount</th>
-        <th>Date</th>
+        <th>Total Bill</th>
+        <th>Due Date</th>
+        <th>Status</th>
     </tr>
 
-    <?php
-    $result = $conn->query("SELECT * FROM bills ORDER BY bill_date DESC");
-    while ($row = $result->fetch_assoc()) {
-    ?>
+    <?php while($row = $bills_result->fetch_assoc()) { ?>
     <tr>
-        <td><?= $row['bill_id'] ?></td>
+        <td><?= $row['consumer_name'] ?></td>
+        <td><?= $row['consumer_no'] ?></td>
         <td><?= $row['meter_id'] ?></td>
         <td><?= $row['units'] ?></td>
-        <td>₹<?= $row['amount'] ?></td>
-        <td><?= $row['bill_date'] ?></td>
+        <td>₹ <?= $row['total_amount'] ?></td>
+        <td><?= date('d-m-Y', strtotime($row['due_date'])) ?></td>
+        <td>
+            <?php
+            if($row['status']=='Paid') echo "<span class='status approved'>Paid</span>";
+            else echo "<span class='status pending'>Pending</span>";
+            ?>
+        </td>
     </tr>
     <?php } ?>
 
-    </table>
+</table>
+<?php } else { ?>
+<p style="text-align:center; font-size:18px; color:#475569; margin-top:15px;">
+    No bills have been generated yet.
+</p>
+<?php } ?>
 
-    </body>
+</body>
 </html>

@@ -1,0 +1,113 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #1f2933;
+    padding: 30px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* Form */
+form {
+    background-color: #ffffff;
+    max-width: 450px;
+    margin: 0 auto 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1e40af;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2563eb;
+}
+
+/* Message */
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Bill Box */
+.bill-box {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    border-top: 8px solid #1e3a8a;
+}
+
+.bill-box h3 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.bill-box p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.bill-box b {
+    color: #1e3a8a;
+}
+
+/* Highlight amounts */
+.bill-box p span.amount {
+    font-weight: 700;
+    color: #16a34a;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    form, .bill-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
